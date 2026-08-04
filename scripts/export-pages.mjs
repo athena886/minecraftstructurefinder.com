@@ -14,7 +14,7 @@ if (!response.ok) throw new Error(`Static export failed with ${response.status}`
 
 let html = await response.text();
 html = html.replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi, (tag) =>
-  /src="\/(?:vendor\/leaflet\.js|js\/app\.js(?:\?[^\"]*)?)"/.test(tag) ? tag : "",
+  /src="\/(?:vendor\/leaflet\.js|js\/app(?:-p1)?\.js(?:\?[^\"]*)?)"/.test(tag) ? tag : "",
 );
 html = html.replace(/<link\b[^>]*rel="(?:modulepreload|preload)"[^>]*>/gi, "");
 html = html.replace(/<!--\$[^>]*-->|<!--\/\$-->/g, "");

@@ -44,6 +44,8 @@ test("ships the local browser engine and map assets", async () => {
     access(new URL("../public/wasm/cubiomes.wasm", import.meta.url)),
     access(new URL("../public/wasm/cubiomes.mjs", import.meta.url)),
     access(new URL("../public/vendor/leaflet.js", import.meta.url)),
+    access(new URL("../public/js/app-p1.js", import.meta.url)),
+    access(new URL("../public/js/ui-p1.js", import.meta.url)),
     access(new URL("../public/js/search-worker.js", import.meta.url)),
   ]);
 });

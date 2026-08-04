@@ -213,7 +213,7 @@ export default function Home() {
       </footer>
 
       <script src="/vendor/leaflet.js" defer />
-      <script type="module" src="/js/app.js?v=20260804-p1" />
+      <script type="module" src="/js/app-p1.js" />
     </main>
   );
 }
