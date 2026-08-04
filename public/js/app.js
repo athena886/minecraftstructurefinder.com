@@ -7,6 +7,8 @@ const seedInput = document.querySelector("#seed-input");
 const versionSelect = document.querySelector("#version-select");
 const radiusSelect = document.querySelector("#radius-select");
 const emptyState = document.querySelector("#map-empty");
+const demoNotice = document.querySelector("#demo-notice");
+const demoSeed = "-3435226823721187965";
 initMap();
 
 function stringSeed(text) {
@@ -29,8 +31,9 @@ function parseSeed(value) {
 function getDimension() { return form.elements.dimension.value; }
 function versionCode(value) { return Number(value.split("_").at(-1).replace(".", "")); }
 
-async function runSearch(updateUrl = true) {
+async function runSearch(updateUrl = true, isDemo = false) {
   try {
+    demoNotice.hidden = !isDemo;
     const seed = parseSeed(seedInput.value);
     if (versionSelect.value.startsWith("bedrock")) {
       throw new Error("Bedrock structure placement differs from Java. Accurate Bedrock search is coming next; choose Java for verified results.");
@@ -49,13 +52,14 @@ async function runSearch(updateUrl = true) {
       history.replaceState(null, "", `?${params}`);
     }
   } catch (error) {
+    demoNotice.hidden = true;
     showMessage(error.message || "WASM failed to load. Refresh the page and try again.", true);
   } finally {
     setLoading(false);
   }
 }
 
-form.addEventListener("submit", (event) => { event.preventDefault(); runSearch(); });
+form.addEventListener("submit", (event) => { event.preventDefault(); runSearch(true, false); });
 document.querySelector("#reset-map").addEventListener("click", resetMap);
 
 const params = new URLSearchParams(location.search);
@@ -66,4 +70,7 @@ if (params.has("seed")) {
   const radio = form.querySelector(`[name="dimension"][value="${dimension}"]`);
   if (radio) radio.checked = true;
   runSearch(false);
+} else {
+  seedInput.value = demoSeed;
+  runSearch(false, true);
 }

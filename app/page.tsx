@@ -90,8 +90,8 @@ export default function Home() {
           <div id="map" aria-label="Map of Minecraft structure coordinates" />
           <div id="map-empty" className="map-empty">
             <div className="compass" aria-hidden="true"><span>N</span><i /></div>
-            <strong>Your structure map starts here</strong>
-            <p>Enter a Minecraft seed above to reveal nearby structures.</p>
+            <strong>Discover what&apos;s hiding in your seed</strong>
+            <p>We&apos;ll show you every village, stronghold, and ancient city — all rendered in your browser.</p>
           </div>
           <div id="loading" className="loading-overlay" hidden>
             <div className="loader" aria-hidden="true" />
@@ -108,12 +108,13 @@ export default function Home() {
             </div>
             <span id="result-count" className="count-badge">0 found</span>
           </div>
+          <p id="demo-notice" className="demo-notice" hidden>Showing demo seed <span aria-hidden="true">·</span> Try your own seed above</p>
           <div id="filter-row" className="filter-row" aria-label="Filter structure results" />
           <div id="result-list" className="result-list">
             <div className="results-empty">
               <span aria-hidden="true">⌖</span>
-              <strong>No structures yet</strong>
-              <p>Your nearest Minecraft structures and exact coordinates will appear here.</p>
+              <strong>Waiting for a seed to explore</strong>
+              <p>Map markers and exact coordinates will appear here.</p>
             </div>
           </div>
         </aside>
@@ -129,6 +130,30 @@ export default function Home() {
           <li><span>2</span><div><strong>Match your world</strong><p>Select the Java version and dimension you want to explore.</p></div></li>
           <li><span>3</span><div><strong>Pick a structure</strong><p>Tap any result to center the map, then copy its X and Z coordinates.</p></div></li>
         </ol>
+      </section>
+
+      <section className="structures-grid" aria-labelledby="structures-heading">
+        <div className="structures-heading">
+          <p className="eyebrow">Supported structures</p>
+          <h2 id="structures-heading">Structures we can find</h2>
+        </div>
+        <div className="grid">
+          <div><span aria-hidden="true">⌂</span><strong>Village</strong></div>
+          <div><span aria-hidden="true">✦</span><strong>Ancient City</strong></div>
+          <div><span aria-hidden="true">⬡</span><strong>Trial Chambers</strong></div>
+          <div><span aria-hidden="true">♜</span><strong>Stronghold</strong></div>
+          <div><span aria-hidden="true">▦</span><strong>Woodland Mansion</strong></div>
+          <div><span aria-hidden="true">♜</span><strong>Ocean Monument</strong></div>
+          <div><span aria-hidden="true">▲</span><strong>Desert Pyramid</strong></div>
+          <div><span aria-hidden="true">◆</span><strong>Jungle Temple</strong></div>
+          <div><span aria-hidden="true">♜</span><strong>Pillager Outpost</strong></div>
+          <div><span aria-hidden="true">♜</span><strong>Nether Fortress</strong></div>
+          <div><span aria-hidden="true">▦</span><strong>Bastion Remnant</strong></div>
+          <div><span aria-hidden="true">✧</span><strong>End City</strong></div>
+          <div><span aria-hidden="true">◇</span><strong>Ruined Portal</strong></div>
+          <div><span aria-hidden="true">⌂</span><strong>Igloo</strong></div>
+          <div><span aria-hidden="true">⚓</span><strong>Shipwreck</strong></div>
+        </div>
       </section>
 
       <footer>
