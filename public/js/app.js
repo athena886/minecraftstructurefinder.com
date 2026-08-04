@@ -1,6 +1,6 @@
 import { findStructures } from "./wasm-loader.js";
 import { initMap, setMarkers, focusMarker, resetMap } from "./map.js";
-import { renderResults, setLoading, showMessage } from "./ui.js";
+import { renderResults, setLoading, showMessage } from "./ui.js?v=20260804-p1";
 
 const form = document.querySelector("#search-form");
 const seedInput = document.querySelector("#seed-input");

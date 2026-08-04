@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://minecraftstructurefinder.com"),
   title: "Minecraft Structure Finder - Find Any Structure by Seed",
   description:
-    "Free Minecraft Structure Finder. Enter any seed to instantly locate Villages, Ancient Cities, Trial Chambers, Strongholds and more. Works for Java and Bedrock. Like Chunkbase but focused on structures.",
+    "Free Minecraft Structure Finder. Enter any seed to find every village, stronghold, ancient city & more. Works for Java & Bedrock. No download.",
   alternates: { canonical: "/" },
   openGraph: {
     title: "Minecraft Structure Finder",

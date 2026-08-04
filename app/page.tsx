@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Minecraft Structure Finder - Find Any Structure by Seed",
   description:
-    "Free Minecraft Structure Finder. Enter any seed to instantly locate Villages, Ancient Cities, Trial Chambers, Strongholds and more. Works for Java and Bedrock. Like Chunkbase but focused on structures.",
+    "Free Minecraft Structure Finder. Enter any seed to find every village, stronghold, ancient city & more. Works for Java & Bedrock. No download.",
 };
 
 export default function Home() {
@@ -60,7 +60,7 @@ export default function Home() {
             </div>
           </div>
 
-          <button id="search-button" type="submit">
+          <button id="search-button" className="btn-primary" type="submit">
             <span className="button-icon" aria-hidden="true">⌖</span>
             <span>Find Structures</span>
           </button>
@@ -132,27 +132,78 @@ export default function Home() {
         </ol>
       </section>
 
-      <section className="structures-grid" aria-labelledby="structures-heading">
-        <div className="structures-heading">
+      <section className="structures-showcase" aria-labelledby="structures-heading">
+        <div className="container">
           <p className="eyebrow">Supported structures</p>
           <h2 id="structures-heading">Structures we can find</h2>
+          <div className="structures-grid">
+            <div className="structure-card"><span className="struct-icon" aria-hidden="true">🏘️</span><span>Village</span></div>
+            <div className="structure-card"><span className="struct-icon" aria-hidden="true">🏛️</span><span>Ancient City</span></div>
+            <div className="structure-card"><span className="struct-icon" aria-hidden="true">⚔️</span><span>Trial Chambers</span></div>
+            <div className="structure-card"><span className="struct-icon" aria-hidden="true">👁️</span><span>Stronghold</span></div>
+            <div className="structure-card"><span className="struct-icon" aria-hidden="true">🏰</span><span>Woodland Mansion</span></div>
+            <div className="structure-card"><span className="struct-icon" aria-hidden="true">🌊</span><span>Ocean Monument</span></div>
+            <div className="structure-card"><span className="struct-icon" aria-hidden="true">🏜️</span><span>Desert Pyramid</span></div>
+            <div className="structure-card"><span className="struct-icon" aria-hidden="true">🌿</span><span>Jungle Temple</span></div>
+            <div className="structure-card"><span className="struct-icon" aria-hidden="true">🏹</span><span>Pillager Outpost</span></div>
+            <div className="structure-card"><span className="struct-icon" aria-hidden="true">🔥</span><span>Nether Fortress</span></div>
+            <div className="structure-card"><span className="struct-icon" aria-hidden="true">💀</span><span>Bastion Remnant</span></div>
+            <div className="structure-card"><span className="struct-icon" aria-hidden="true">🟣</span><span>End City</span></div>
+            <div className="structure-card"><span className="struct-icon" aria-hidden="true">🌀</span><span>Ruined Portal</span></div>
+            <div className="structure-card"><span className="struct-icon" aria-hidden="true">❄️</span><span>Igloo</span></div>
+            <div className="structure-card"><span className="struct-icon" aria-hidden="true">⛵</span><span>Shipwreck</span></div>
+          </div>
         </div>
-        <div className="grid">
-          <div><span aria-hidden="true">⌂</span><strong>Village</strong></div>
-          <div><span aria-hidden="true">✦</span><strong>Ancient City</strong></div>
-          <div><span aria-hidden="true">⬡</span><strong>Trial Chambers</strong></div>
-          <div><span aria-hidden="true">♜</span><strong>Stronghold</strong></div>
-          <div><span aria-hidden="true">▦</span><strong>Woodland Mansion</strong></div>
-          <div><span aria-hidden="true">♜</span><strong>Ocean Monument</strong></div>
-          <div><span aria-hidden="true">▲</span><strong>Desert Pyramid</strong></div>
-          <div><span aria-hidden="true">◆</span><strong>Jungle Temple</strong></div>
-          <div><span aria-hidden="true">♜</span><strong>Pillager Outpost</strong></div>
-          <div><span aria-hidden="true">♜</span><strong>Nether Fortress</strong></div>
-          <div><span aria-hidden="true">▦</span><strong>Bastion Remnant</strong></div>
-          <div><span aria-hidden="true">✧</span><strong>End City</strong></div>
-          <div><span aria-hidden="true">◇</span><strong>Ruined Portal</strong></div>
-          <div><span aria-hidden="true">⌂</span><strong>Igloo</strong></div>
-          <div><span aria-hidden="true">⚓</span><strong>Shipwreck</strong></div>
+      </section>
+
+      <section className="faq-section" aria-labelledby="faq-heading">
+        <div className="container">
+          <p className="eyebrow">Seed finder guide</p>
+          <h2 id="faq-heading">How to use this Minecraft Structure Finder</h2>
+
+          <div className="faq-list">
+            <article>
+              <h3>What is a Minecraft seed?</h3>
+              <p>A seed is a number or string that generates your Minecraft world. Every seed produces a unique layout of biomes and structures. Share seeds with friends to explore the same world.</p>
+              <p>Minecraft converts the seed into the starting data used by world generation. The same seed, edition, and version will reproduce the same broad world layout, which makes a seed useful for planning survival bases, speedruns, exploration routes, and multiplayer worlds. Version selection matters because generation rules change between major updates, so always match the finder to the version used when your world was created.</p>
+            </article>
+
+            <article>
+              <h3>How do I find my seed?</h3>
+              <p>In Java Edition, type <code>/seed</code> in the chat. In Bedrock Edition, go to Settings → Game → Seed. On existing worlds, the seed is shown in the world settings menu.</p>
+              <p>If a Java server blocks the command, ask the server owner or check the server configuration. Copy the complete value, including a minus sign when one is present. Text seeds also work because Minecraft converts text into a numeric value. Before searching, confirm whether the world uses Java or Bedrock and select the closest supported game version so that the finder applies the correct structure rules.</p>
+            </article>
+
+            <article>
+              <h3>Which structures can this tool find?</h3>
+              <p>This finder locates over 15 structure types including Villages, Ancient Cities, Trial Chambers, Strongholds, Woodland Mansions, Ocean Monuments, Desert &amp; Jungle Temples, Pillager Outposts, Nether Fortresses, Bastion Remnants, End Cities, Ruined Portals, Igloos, and Shipwrecks. Works for both Java and Bedrock editions.</p>
+              <p>Switch between the Overworld, Nether, and End to see structures that belong to each dimension. Use the radius menu to balance search coverage and speed, then filter the result list by structure type. Every result is sorted by distance from the world origin, so nearby options appear first. Selecting a result centers the interactive map and opens its coordinate marker for quick route planning.</p>
+            </article>
+
+            <article>
+              <h3>Does this work for Bedrock Edition?</h3>
+              <p>Yes. Select &quot;Bedrock&quot; from the version dropdown and enter your seed. The structure generation algorithm differs slightly between Java and Bedrock, and our tool handles both correctly.</p>
+              <p>Always choose the edition that matches the world you play. A Java seed can be entered in Bedrock and vice versa, but structure placement may differ because the editions do not share every generation rule. If a coordinate looks unexpected, double-check the edition, version, and dimension before travelling. Worlds upgraded across several Minecraft releases can also contain older generated chunks beside newly generated terrain.</p>
+            </article>
+
+            <article>
+              <h3>Is this tool free?</h3>
+              <p>Completely free. No download, no sign-up, no ads. Everything runs in your browser — your seed never leaves your device.</p>
+              <p>The structure calculation uses WebAssembly locally, which means there is no world upload and no account to manage. You can start with the demo seed, replace it with your own seed, and copy any coordinate immediately. The lightweight page keeps the map, filters, and coordinate list together without requiring a launcher mod, data pack, desktop program, or browser extension.</p>
+            </article>
+
+            <article>
+              <h3>How accurate are the coordinates?</h3>
+              <p>Coordinates are generated using the same algorithm Minecraft uses (via cubiomes). They are exact to the block. Click any structure on the map or in the list to copy its coordinates, then navigate there in-game.</p>
+              <p>Use the displayed X and Z values for horizontal navigation and determine the safe Y level in the game. Some structure candidates depend on surrounding terrain or biome checks and may not appear in already-generated or heavily modified chunks. For the best match, verify your game version and explore fresh terrain. Nether travel can shorten Overworld journeys, but remember that one Nether block corresponds to eight Overworld blocks.</p>
+            </article>
+
+            <article>
+              <h3>What&apos;s the difference between this and Chunkbase?</h3>
+              <p>Chunkbase&apos;s Seed Map shows biomes and slime chunks alongside structures. This tool focuses exclusively on structures — faster to load, simpler to use, and gives you a clean coordinate list alongside the map. If you just want to find structures quickly, this is the tool for you.</p>
+              <p>The focused layout is designed for one task: enter a Minecraft seed, choose the correct world settings, and find useful destinations. The map gives spatial context while the list makes coordinates easy to scan and copy on a phone, tablet, or desktop. Because biome coloring and unrelated overlays are omitted, structure markers stay readable even when a large search radius returns hundreds of possible locations.</p>
+            </article>
+          </div>
         </div>
       </section>
 
@@ -162,7 +213,7 @@ export default function Home() {
       </footer>
 
       <script src="/vendor/leaflet.js" defer />
-      <script type="module" src="/js/app.js?v=20260804-visual" />
+      <script type="module" src="/js/app.js?v=20260804-p1" />
     </main>
   );
 }

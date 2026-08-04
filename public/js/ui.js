@@ -1,4 +1,4 @@
-import { getStructure } from "./structures.js";
+import { getStructure } from "./structures.js?v=20260804-p1";
 
 const list = document.querySelector("#result-list");
 const count = document.querySelector("#result-count");
@@ -10,6 +10,15 @@ let selectionHandler = () => {};
 function distance(item) { return Math.round(Math.hypot(item.x, item.z)); }
 function meters(value) { return value >= 1000 ? `${(value / 1000).toFixed(1)}k blocks` : `${value} blocks`; }
 
+const relatedTools = `<div class="related-tools">
+  <span>Try also:</span>
+  <a href="#">Village Finder</a>
+  <span aria-hidden="true">·</span>
+  <a href="#">Ancient City Finder</a>
+  <span aria-hidden="true">·</span>
+  <a href="#">Stronghold Finder</a>
+</div>`;
+
 function renderItems() {
   const visible = currentItems.filter((item) => activeKey === "all" || getStructure(item.type).key === activeKey);
   if (!visible.length) {
@@ -20,10 +29,10 @@ function renderItems() {
     const structure = getStructure(item.type);
     return `<div class="result-item" data-index="${item.index}" role="button" tabindex="0">
       <span class="structure-icon" style="background:${structure.color}" aria-hidden="true">${structure.icon}</span>
-      <span class="result-meta"><strong>${structure.name}</strong><span class="coordinate">X ${item.x}, Z ${item.z}</span><span class="distance">${meters(distance(item))} from origin</span></span>
+      <span class="result-meta"><strong>${structure.name}</strong>${structure.description ? `<span class="structure-description">${structure.description}</span>` : ""}<span class="coordinate">X ${item.x}, Z ${item.z}</span><span class="distance">${meters(distance(item))} from origin</span></span>
       <button class="copy-button" type="button" data-copy="${item.x} ${item.z}" aria-label="Copy ${structure.name} coordinates">Copy</button>
     </div>`;
-  }).join("");
+  }).join("") + relatedTools;
 }
 
 export function renderResults(items, onSelect) {

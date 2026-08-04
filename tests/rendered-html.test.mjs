@@ -17,10 +17,25 @@ test("server-renders the product and required SEO source", async () => {
   assert.match(response.headers.get("content-type") ?? "", /^text\/html\b/i);
   const html = await response.text();
   assert.match(html, /<title>Minecraft Structure Finder - Find Any Structure by Seed<\/title>/i);
-  assert.match(html, /<meta name="description" content="[^"]*Minecraft Structure Finder[^"]*seed[^"]*Java and Bedrock/i);
+  const description = html.match(/<meta name="description" content="([^"]+)"/i)?.[1] ?? "";
+  assert.equal(description, "Free Minecraft Structure Finder. Enter any seed to find every village, stronghold, ancient city &amp; more. Works for Java &amp; Bedrock. No download.");
+  assert.ok(description.length <= 160, `Meta description is ${description.length} characters`);
+  assert.match(html, /<meta property="og:description" content="Find villages, strongholds, ancient cities and more from any Minecraft seed\."/i);
   assert.match(html, /<h1[^>]*>Minecraft Structure Finder<\/h1>/i);
   assert.match(html, /Enter your Minecraft seed/);
   assert.match(html, /Find Structures/);
+  assert.match(html, /How to use this Minecraft Structure Finder/);
+  assert.match(html, /Structures we can find/);
+  assert.match(html, /Shipwreck/);
+  assert.equal((html.match(/class="structure-card"/g) ?? []).length, 15);
+  const visibleText = html
+    .replace(/<script[\s\S]*?<\/script>/gi, " ")
+    .replace(/<style[\s\S]*?<\/style>/gi, " ")
+    .replace(/<[^>]+>/g, " ")
+    .replace(/&[a-z#0-9]+;/gi, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+  assert.ok(visibleText.split(/\s+/).length >= 1000);
   assert.doesNotMatch(html, /codex-preview|Your site is taking shape/i);
 });
 
