@@ -188,7 +188,7 @@ export default function Home() {
 
             <article>
               <h3>Is this tool free?</h3>
-              <p>Completely free. No download, no sign-up, no ads. Everything runs in your browser — your seed never leaves your device.</p>
+              <p>Completely free. No download, no sign-up. Everything runs in your browser — your seed never leaves your device.</p>
               <p>The structure calculation uses WebAssembly locally, which means there is no world upload and no account to manage. You can start with the demo seed, replace it with your own seed, and copy any coordinate immediately. The lightweight page keeps the map, filters, and coordinate list together without requiring a launcher mod, data pack, desktop program, or browser extension.</p>
             </article>
 
