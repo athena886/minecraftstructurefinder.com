@@ -22,6 +22,5 @@ html = html.replace(/\sdata-(?:rsc-css-href|precedence)="[^"]*"/g, "");
 
 await mkdir(new URL("../dist/client/", import.meta.url), { recursive: true });
 await writeFile(new URL("../dist/client/index.html", import.meta.url), html);
-await writeFile(new URL("../dist/client/_redirects", import.meta.url), "/* /index.html 200\n");
 
 console.log("Static Cloudflare Pages export ready: dist/client");
