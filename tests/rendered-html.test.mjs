@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import { access } from "node:fs/promises";
+import { access, readFile } from "node:fs/promises";
 import test from "node:test";
 
 async function render() {
@@ -48,4 +48,19 @@ test("ships the local browser engine and map assets", async () => {
     access(new URL("../public/js/ui-p1.js", import.meta.url)),
     access(new URL("../public/js/search-worker.js", import.meta.url)),
   ]);
+});
+
+test("ships crawl controls and a real 404 page", async () => {
+  const [robots, sitemap, notFound] = await Promise.all([
+    readFile(new URL("../public/robots.txt", import.meta.url), "utf8"),
+    readFile(new URL("../public/sitemap.xml", import.meta.url), "utf8"),
+    readFile(new URL("../public/404.html", import.meta.url), "utf8"),
+  ]);
+  assert.match(robots, /^User-agent: \*$/m);
+  assert.match(robots, /^Allow: \/$/m);
+  assert.match(robots, /^Sitemap: https:\/\/minecraftstructurefinder\.com\/sitemap\.xml$/m);
+  assert.match(sitemap, /^<\?xml version="1\.0" encoding="UTF-8"\?>/);
+  assert.match(sitemap, /<loc>https:\/\/minecraftstructurefinder\.com\/<\/loc>/);
+  assert.match(notFound, /<meta name="robots" content="noindex">/);
+  assert.match(notFound, /Page not found/);
 });
