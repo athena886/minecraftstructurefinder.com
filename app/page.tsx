@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Minecraft Structure Finder - Find Any Structure by Seed",
@@ -6,14 +7,88 @@ export const metadata: Metadata = {
     "Free Minecraft Structure Finder. Enter any seed to find every village, stronghold, ancient city & more. Works for Java & Bedrock. No download.",
 };
 
+const homeJsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://minecraftstructurefinder.com/#website",
+      url: "https://minecraftstructurefinder.com/",
+      name: "Minecraft Structure Finder",
+      description: "A private, browser-based tool for finding Minecraft structures from a world seed.",
+      inLanguage: "en",
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://minecraftstructurefinder.com/#application",
+      name: "Minecraft Structure Finder",
+      url: "https://minecraftstructurefinder.com/",
+      applicationCategory: "GameApplication",
+      applicationSubCategory: "Minecraft seed tool",
+      operatingSystem: "Any operating system with a modern web browser",
+      browserRequirements: "Requires JavaScript and WebAssembly",
+      isAccessibleForFree: true,
+      offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+      featureList: [
+        "Find Minecraft structures by seed",
+        "Interactive coordinate map",
+        "Nearest-first structure list",
+        "Java version and dimension selection",
+        "Local browser-based seed calculation",
+      ],
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://minecraftstructurefinder.com/#faq",
+      mainEntity: [
+        {
+          "@type": "Question",
+          name: "What is a Minecraft seed?",
+          acceptedAnswer: { "@type": "Answer", text: "A seed is a number or string that generates a Minecraft world. The same seed, edition, and version reproduce the same broad world layout, including structure placement rules." },
+        },
+        {
+          "@type": "Question",
+          name: "How do I find my seed?",
+          acceptedAnswer: { "@type": "Answer", text: "In Java Edition, type /seed in chat. In Bedrock Edition, open Settings, then Game, and look for Seed. Copy the complete value, including a minus sign when present." },
+        },
+        {
+          "@type": "Question",
+          name: "Which structures can this tool find?",
+          acceptedAnswer: { "@type": "Answer", text: "The finder covers villages, Ancient Cities, Trial Chambers, strongholds, Woodland Mansions, Ocean Monuments, desert pyramids, jungle temples, Pillager Outposts, Nether Fortresses, Bastion Remnants, End Cities, ruined portals, igloos, and shipwrecks." },
+        },
+        {
+          "@type": "Question",
+          name: "Does this work for Bedrock Edition?",
+          acceptedAnswer: { "@type": "Answer", text: "The interface includes a Bedrock preview option. Verified coordinate calculation currently uses the Java cubiomes engine, so confirm edition support before relying on Bedrock coordinates." },
+        },
+        {
+          "@type": "Question",
+          name: "Is this tool free?",
+          acceptedAnswer: { "@type": "Answer", text: "Yes. There is no download or sign-up. Structure calculation runs in the browser, so the seed stays on the device." },
+        },
+        {
+          "@type": "Question",
+          name: "How accurate are the coordinates?",
+          acceptedAnswer: { "@type": "Answer", text: "Coordinates are calculated with cubiomes and identify structure candidates by X and Z. Version, terrain, biome checks, and already-generated chunks can affect the final in-game structure." },
+        },
+        {
+          "@type": "Question",
+          name: "What is the difference between this and Chunkbase?",
+          acceptedAnswer: { "@type": "Answer", text: "Chunkbase combines biomes, slime chunks, and structures. Minecraft Structure Finder focuses on a fast structure map and a clean, copyable coordinate list." },
+        },
+      ],
+    },
+  ],
+};
+
 export default function Home() {
   return (
     <main>
       <header className="site-header">
-        <a className="brand" href="/" aria-label="Minecraft Structure Finder home">
+        <Link className="brand" href="/" aria-label="Minecraft Structure Finder home">
           <span className="brand-block" aria-hidden="true" />
           <span>Structure Finder</span>
-        </a>
+        </Link>
         <span className="privacy-note"><span aria-hidden="true">◆</span> Runs on your device</span>
       </header>
 
@@ -132,16 +207,41 @@ export default function Home() {
         </ol>
       </section>
 
+      <section className="use-cases" aria-labelledby="use-cases-heading">
+        <div className="use-cases-heading">
+          <p className="eyebrow">Plan before you travel</p>
+          <h2 id="use-cases-heading">A structure finder for every Minecraft world</h2>
+          <p>Use one private map to find Minecraft structures by seed, compare routes, and turn a long search into a practical set of coordinates.</p>
+        </div>
+        <div className="use-case-grid">
+          <article>
+            <span aria-hidden="true">⚡</span>
+            <h3>Build faster speedrun routes</h3>
+            <p>Compare nearby Villages, Ruined Portals, Nether Fortresses, Bastion Remnants, and Strongholds before committing to a run. A Minecraft seed structure finder gives speedrunners a clear view of distance and direction, while the nearest-first list makes promising routes quick to scan.</p>
+          </article>
+          <article>
+            <span aria-hidden="true">⛏️</span>
+            <h3>Plan survival progression</h3>
+            <p>Find useful destinations for trading, rare loot, exploration, and access to the End. Survival players can map a Village near spawn, save an Ancient City for a prepared expedition, and compare distant Woodland Mansions or Ocean Monuments without repeatedly leaving the world to search.</p>
+          </article>
+          <article>
+            <span aria-hidden="true">🧭</span>
+            <h3>Coordinate multiplayer worlds</h3>
+            <p>Server owners and friends can share one seed URL, agree on structure coordinates, and plan transport hubs or group expeditions. Calculations run locally, so there is no world upload. Java versions are validated by cubiomes; players looking for a free Minecraft Bedrock structure finder can inspect the Bedrock preview while checking current edition support.</p>
+          </article>
+        </div>
+      </section>
+
       <section className="structures-showcase" aria-labelledby="structures-heading">
         <div className="container">
           <p className="eyebrow">Supported structures</p>
           <h2 id="structures-heading">Structures we can find</h2>
           <div className="structures-grid">
-            <div className="structure-card"><span className="struct-icon" aria-hidden="true">🏘️</span><span>Village</span></div>
-            <div className="structure-card"><span className="struct-icon" aria-hidden="true">🏛️</span><span>Ancient City</span></div>
-            <div className="structure-card"><span className="struct-icon" aria-hidden="true">⚔️</span><span>Trial Chambers</span></div>
-            <div className="structure-card"><span className="struct-icon" aria-hidden="true">👁️</span><span>Stronghold</span></div>
-            <div className="structure-card"><span className="struct-icon" aria-hidden="true">🏰</span><span>Woodland Mansion</span></div>
+            <Link className="structure-card linked" href="/village-finder"><span className="struct-icon" aria-hidden="true">🏘️</span><span>Village</span></Link>
+            <Link className="structure-card linked" href="/ancient-city-finder"><span className="struct-icon" aria-hidden="true">🏛️</span><span>Ancient City</span></Link>
+            <Link className="structure-card linked" href="/trial-chambers-finder"><span className="struct-icon" aria-hidden="true">⚔️</span><span>Trial Chambers</span></Link>
+            <Link className="structure-card linked" href="/stronghold-finder"><span className="struct-icon" aria-hidden="true">👁️</span><span>Stronghold</span></Link>
+            <Link className="structure-card linked" href="/woodland-mansion-finder"><span className="struct-icon" aria-hidden="true">🏰</span><span>Woodland Mansion</span></Link>
             <div className="structure-card"><span className="struct-icon" aria-hidden="true">🌊</span><span>Ocean Monument</span></div>
             <div className="structure-card"><span className="struct-icon" aria-hidden="true">🏜️</span><span>Desert Pyramid</span></div>
             <div className="structure-card"><span className="struct-icon" aria-hidden="true">🌿</span><span>Jungle Temple</span></div>
@@ -182,8 +282,8 @@ export default function Home() {
 
             <article>
               <h3>Does this work for Bedrock Edition?</h3>
-              <p>Yes. Select &quot;Bedrock&quot; from the version dropdown and enter your seed. The structure generation algorithm differs slightly between Java and Bedrock, and our tool handles both correctly.</p>
-              <p>Always choose the edition that matches the world you play. A Java seed can be entered in Bedrock and vice versa, but structure placement may differ because the editions do not share every generation rule. If a coordinate looks unexpected, double-check the edition, version, and dimension before travelling. Worlds upgraded across several Minecraft releases can also contain older generated chunks beside newly generated terrain.</p>
+              <p>The interface includes a Bedrock preview option, but verified coordinate calculation currently uses the Java cubiomes engine. Confirm current edition support before relying on Bedrock coordinates.</p>
+              <p>Always choose the edition that matches the world you play. A Java seed can be entered in Bedrock and vice versa, but structure placement may differ because the editions do not share every generation rule. For dependable results today, use a supported Java version. Worlds upgraded across several Minecraft releases can also contain older generated chunks beside newly generated terrain.</p>
             </article>
 
             <article>
@@ -212,7 +312,10 @@ export default function Home() {
         <p>Structure placement powered by <a href="https://github.com/Cubitect/cubiomes" rel="noreferrer">cubiomes</a>. Some terrain-dependent candidates may not generate in-game.</p>
       </footer>
 
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(homeJsonLd).replace(/</g, "\\u003c") }} />
+
       <script src="/vendor/leaflet.js" defer />
+      {/* eslint-disable-next-line @next/next/no-sync-scripts */}
       <script type="module" src="/js/app-p1.js" />
     </main>
   );
