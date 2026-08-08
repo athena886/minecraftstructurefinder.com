@@ -17,11 +17,11 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return {
     title: guide.title,
     description: guide.description,
-    alternates: { canonical: `/${guide.slug}` },
+    alternates: { canonical: `/${guide.slug}/` },
     openGraph: {
       title: guide.title,
       description: guide.description,
-      url: `/${guide.slug}`,
+      url: `/${guide.slug}/`,
       siteName: "Minecraft Structure Finder",
       type: "article",
       images: [{ url: "/og.png", width: 1200, height: 630, alt: "Minecraft Structure Finder interactive coordinate map" }],
@@ -35,7 +35,7 @@ export default async function StructureGuidePage({ params }: PageProps) {
   const guide = guideBySlug[slug];
   if (!guide) notFound();
 
-  const pageUrl = `https://minecraftstructurefinder.com/${guide.slug}`;
+  const pageUrl = `https://minecraftstructurefinder.com/${guide.slug}/`;
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
@@ -117,7 +117,7 @@ export default async function StructureGuidePage({ params }: PageProps) {
             <div className="related-guides">
               <span>Related guides</span>
               {structureGuides.filter((item) => item.slug !== guide.slug).map((item) => (
-                <Link key={item.slug} href={`/${item.slug}`}>{item.icon} {item.name} Finder</Link>
+                <Link key={item.slug} href={`/${item.slug}/`}>{item.icon} {item.name} Finder</Link>
               ))}
             </div>
           </aside>

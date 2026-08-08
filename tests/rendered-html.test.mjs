@@ -37,7 +37,7 @@ test("server-renders the product and required SEO source", async () => {
   assert.match(html, /Structures we can find/);
   assert.match(html, /Shipwreck/);
   assert.equal((html.match(/class="structure-card(?: linked)?"/g) ?? []).length, 15);
-  assert.match(html, /<a href="\/village-finder" class="structure-card linked"/i);
+  assert.match(html, /<a href="\/village-finder\/" class="structure-card linked"/i);
   assert.match(html, /type="application\/ld\+json"/i);
   assert.match(html, /"@type":"FAQPage"/i);
   assert.match(html, /"@type":"SoftwareApplication"/i);
@@ -69,7 +69,7 @@ test("server-renders five focused structure guide pages", async () => {
     assert.equal(response.status, 200, route);
     const html = await response.text();
     assert.match(html, new RegExp(`<title>[^<]*${heading.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}[^<]*<\\/title>`, "i"), route);
-    assert.match(html, new RegExp(`<link rel="canonical" href="https://minecraftstructurefinder\\.com${route}"`, "i"), route);
+    assert.match(html, new RegExp(`<link rel="canonical" href="https://minecraftstructurefinder\\.com${route}\/"`, "i"), route);
     assert.match(html, /type="application\/ld\+json"/i, route);
     assert.match(html, /"@type":"BreadcrumbList"/i, route);
     assert.match(html, /class="related-guides"/i, route);
@@ -99,9 +99,9 @@ test("ships crawl controls and a real 404 page", async () => {
   assert.match(sitemap, /^<\?xml version="1\.0" encoding="UTF-8"\?>/);
   assert.match(sitemap, /<loc>https:\/\/minecraftstructurefinder\.com\/<\/loc>/);
   assert.equal((sitemap.match(/<url>/g) ?? []).length, 6);
-  assert.match(sitemap, /<loc>https:\/\/minecraftstructurefinder\.com\/village-finder<\/loc>/);
-  assert.match(sitemap, /<loc>https:\/\/minecraftstructurefinder\.com\/stronghold-finder<\/loc>/);
-  assert.match(sitemap, /<loc>https:\/\/minecraftstructurefinder\.com\/ancient-city-finder<\/loc>/);
+  assert.match(sitemap, /<loc>https:\/\/minecraftstructurefinder\.com\/village-finder\/<\/loc>/);
+  assert.match(sitemap, /<loc>https:\/\/minecraftstructurefinder\.com\/stronghold-finder\/<\/loc>/);
+  assert.match(sitemap, /<loc>https:\/\/minecraftstructurefinder\.com\/ancient-city-finder\/<\/loc>/);
   assert.match(notFound, /<meta name="robots" content="noindex">/);
   assert.match(notFound, /Page not found/);
 });

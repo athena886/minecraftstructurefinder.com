@@ -237,11 +237,11 @@ export default function Home() {
           <p className="eyebrow">Supported structures</p>
           <h2 id="structures-heading">Structures we can find</h2>
           <div className="structures-grid">
-            <Link className="structure-card linked" href="/village-finder"><span className="struct-icon" aria-hidden="true">🏘️</span><span>Village</span></Link>
-            <Link className="structure-card linked" href="/ancient-city-finder"><span className="struct-icon" aria-hidden="true">🏛️</span><span>Ancient City</span></Link>
-            <Link className="structure-card linked" href="/trial-chambers-finder"><span className="struct-icon" aria-hidden="true">⚔️</span><span>Trial Chambers</span></Link>
-            <Link className="structure-card linked" href="/stronghold-finder"><span className="struct-icon" aria-hidden="true">👁️</span><span>Stronghold</span></Link>
-            <Link className="structure-card linked" href="/woodland-mansion-finder"><span className="struct-icon" aria-hidden="true">🏰</span><span>Woodland Mansion</span></Link>
+            <Link className="structure-card linked" href="/village-finder/"><span className="struct-icon" aria-hidden="true">🏘️</span><span>Village</span></Link>
+            <Link className="structure-card linked" href="/ancient-city-finder/"><span className="struct-icon" aria-hidden="true">🏛️</span><span>Ancient City</span></Link>
+            <Link className="structure-card linked" href="/trial-chambers-finder/"><span className="struct-icon" aria-hidden="true">⚔️</span><span>Trial Chambers</span></Link>
+            <Link className="structure-card linked" href="/stronghold-finder/"><span className="struct-icon" aria-hidden="true">👁️</span><span>Stronghold</span></Link>
+            <Link className="structure-card linked" href="/woodland-mansion-finder/"><span className="struct-icon" aria-hidden="true">🏰</span><span>Woodland Mansion</span></Link>
             <div className="structure-card"><span className="struct-icon" aria-hidden="true">🌊</span><span>Ocean Monument</span></div>
             <div className="structure-card"><span className="struct-icon" aria-hidden="true">🏜️</span><span>Desert Pyramid</span></div>
             <div className="structure-card"><span className="struct-icon" aria-hidden="true">🌿</span><span>Jungle Temple</span></div>
