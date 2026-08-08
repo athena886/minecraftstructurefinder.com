@@ -73,6 +73,16 @@ test("server-renders five focused structure guide pages", async () => {
     assert.match(html, /type="application\/ld\+json"/i, route);
     assert.match(html, /"@type":"BreadcrumbList"/i, route);
     assert.match(html, /class="related-guides"/i, route);
+    const visibleText = html
+      .replace(/<script[\s\S]*?<\/script>/gi, " ")
+      .replace(/<style[\s\S]*?<\/style>/gi, " ")
+      .replace(/<[^>]+>/g, " ")
+      .replace(/&[a-z#0-9]+;/gi, " ")
+      .replace(/\s+/g, " ")
+      .trim();
+    const wordCount = visibleText.split(/\s+/).length;
+    assert.ok(wordCount >= 800, `${route} has ${wordCount} visible words`);
+    assert.ok(wordCount <= 1200, `${route} has ${wordCount} visible words`);
   }
 });
 

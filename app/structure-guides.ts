@@ -47,6 +47,20 @@ export const structureGuides: StructureGuide[] = [
           "When you reach the X and Z coordinates, explore the surrounding area rather than expecting the center of the village to land on one exact block. Confirm the seed, edition, version, and dimension if nothing appears. Commands such as /locate can provide an in-game comparison when cheats are enabled.",
         ],
       },
+      {
+        heading: "Choosing the best village near spawn",
+        paragraphs: [
+          "Distance is a useful starting point, but the best village depends on what you want to do next. A plains village with open building space may suit a permanent base, while a desert village can provide quick access to sand and nearby desert structures. Taiga and snowy villages may be harder to reach early but can place useful resources close to a distinctive biome. Check several coordinates on the map and choose a direction that supports the rest of your survival plan.",
+          "For trading projects, look for a location with enough room to protect villagers, organize workstations, and connect paths to farms or transport. For a temporary stop, prioritize food, beds, and a safe route back to spawn. The finder reports straight-line distance from the origin, so rivers, oceans, cliffs, and forests can still affect actual travel time. Mark the destination in game and carry a bed before making a long trip.",
+        ],
+      },
+      {
+        heading: "Using village coordinates on Java servers",
+        paragraphs: [
+          "On a multiplayer server, confirm that the administrator has not changed the seed, world type, structure settings, or terrain with a custom generator. Vanilla-compatible servers generally follow the same Java placement rules, but plugins and pre-generated maps can produce different results. Share the finder URL or copy the X and Z values so other players can coordinate without revealing private server files or uploading the world save.",
+          "Once a village is found, protect beds and villagers before starting construction. Lighting nearby terrain, blocking unsafe drops, and securing entrances can reduce early losses. If you plan to transport villagers, compare the village with your base coordinates before building rails, boats, or Nether portals. A little route planning turns the coordinate result into a useful trading hub instead of a one-time visit.",
+        ],
+      },
     ],
     faq: [
       { question: "Can I find the nearest village without loading my world?", answer: "Yes. Enter the seed and matching Java version to calculate village candidates in your browser, then use the nearest-first coordinate list." },
@@ -87,6 +101,20 @@ export const structureGuides: StructureGuide[] = [
         paragraphs: [
           "Use the exact seed value, including a leading minus sign, and match the world version whenever possible. A world upgraded across releases may contain structures generated under older rules in explored chunks. Newly explored regions can follow the newer version selected in the game.",
           "If the calculated position and an Eye of Ender disagree, verify the edition first because Java and Bedrock stronghold generation is not identical. This finder is most reliable with its validated Java cubiomes engine. In-game /locate commands can help verify the nearest generated stronghold when commands are available.",
+        ],
+      },
+      {
+        heading: "Choosing between nearby strongholds",
+        paragraphs: [
+          "The nearest stronghold by blocks is not always the fastest stronghold to reach. One route may cross an ocean or mountain range, while another aligns with an existing Nether tunnel, village, or base. Compare the angle and distance of several markers, then estimate the resources required for each journey. In a speedrun practice world, repeating the same seed can help you test whether a different stronghold produces a shorter and safer route.",
+          "Nether travel is especially useful for distant destinations because one block in the Nether corresponds to eight blocks in the Overworld. Divide the target X and Z coordinates by eight to estimate a portal location, but build carefully and allow for portal linking rules. Keep a direct Overworld approach available when the Nether route would pass through dangerous terrain or require more setup than it saves.",
+        ],
+      },
+      {
+        heading: "Searching the stronghold efficiently",
+        paragraphs: [
+          "After reaching the target area, use Eyes of Ender to confirm the structure and avoid digging far from the correct chunk. A common approach is to throw an eye from two separated positions and follow the direction where the paths converge. Dig a staircase instead of mining straight down, listen for silverfish, and watch for stone brick variants that indicate the stronghold is close.",
+          "Inside, block off explored corridors or place torches consistently on one side so you can retrace your route. Libraries can provide books and useful loot, but the portal room remains the main objective. Silverfish spawners and lava make the final room hazardous, so secure the area before placing Eyes of Ender. Record the portal coordinates for future End trips and multiplayer teammates.",
         ],
       },
     ],
@@ -131,6 +159,20 @@ export const structureGuides: StructureGuide[] = [
           "If you do not find the structure immediately, inspect the broader underground area around the X and Z marker and confirm that the surrounding biome is Deep Dark. Recheck the seed and version before travelling to a second result. The map can show several alternatives so you can choose another candidate without starting over.",
         ],
       },
+      {
+        heading: "Choosing a safe route into an Ancient City",
+        paragraphs: [
+          "A surface coordinate can sit above a mountain, cave system, or solid rock, so inspect the terrain before choosing an entrance. Large natural caves may provide a faster route, but they can also expose you to mobs and steep drops. A controlled staircase from a secure camp is slower but easier to retreat through. Bring enough blocks to bridge gaps and seal routes that could allow enemies to follow you into the Deep Dark.",
+          "Set a waypoint or write down the entrance coordinates separately from the city marker. If the trip is long, establish a bed and storage outside the sculk area so a mistake does not cost every supply. Players on servers should coordinate movement because multiple people can create more vibrations. Agree on a route, use wool around noisy work areas, and avoid opening containers or breaking blocks without warning the group.",
+        ],
+      },
+      {
+        heading: "Ancient City loot and exploration priorities",
+        paragraphs: [
+          "Ancient Cities contain chests spread across large ruins, so decide whether the goal is a quick loot run or a complete exploration. Useful finds can include echo shards, enchanted books, music disc fragments, and other rare items. Greed creates risk: moving rapidly between every chest can activate more sensors and shriekers than a planned route. Clear one section at a time and keep an exit direction visible.",
+          "Night vision improves visibility without placing many light sources, while wool paths can reduce vibration from footsteps. Snowballs or projectiles can distract the Warden, but they should be used deliberately rather than thrown repeatedly from the same location. If darkness warnings build, retreat and wait instead of forcing progress. The finder saves the search journey; patient exploration is what protects the loot once you arrive.",
+        ],
+      },
     ],
     faq: [
       { question: "At what Y level do Ancient Cities generate?", answer: "They generate deep underground in the Deep Dark, commonly well below sea level. Use the finder for X/Z positioning and explore vertically with care." },
@@ -173,6 +215,20 @@ export const structureGuides: StructureGuide[] = [
           "Candidate placement is calculated from the seed, but the finished structure still belongs to the generated world. Verify the complete seed and Java version if a chamber is missing. The nearest-first list provides alternative locations, making it easy to choose a second unexplored candidate.",
         ],
       },
+      {
+        heading: "Choosing a Trial Chambers location",
+        paragraphs: [
+          "When several chamber candidates appear, compare them with your base, village, and existing mining routes. A slightly farther location may be easier to reach if it sits near a known cave or safe transport line. For an upgraded world, prioritize coordinates outside the boundary of previously explored chunks. Moving beyond that boundary gives Minecraft 1.21 a chance to generate the new structure in fresh terrain.",
+          "The displayed distance is measured horizontally from the world origin, not from your current player position. If your base is far from spawn, compare its coordinates manually with each result or use the map direction as a guide. Record both the surface entrance and the chamber marker. That makes repeat visits easier when you return with Trial Keys, friends, or additional supplies.",
+        ],
+      },
+      {
+        heading: "Running Trial Chambers solo or with friends",
+        paragraphs: [
+          "Solo players should create a safe fallback room and avoid activating several trial spawners at once. Carry ranged and melee options so different enemies do not force a risky equipment change. In multiplayer, stay close enough to support one another but do not crowd narrow rooms. The encounter system responds to nearby players, so a larger group should bring proportionally more food, armor durability, and recovery supplies.",
+          "Mark completed spawners and unopened vaults as you move through the copper-and-tuff corridors. Ominous trials require extra preparation and should not be triggered accidentally during a basic exploration run. When the group is ready, agree on which player carries keys and how loot will be shared. A clear plan prevents the chamber from becoming confusing after multiple visits and keeps valuable routes usable for future sessions. Leave signs at major intersections and store spare equipment near the entrance for faster recovery after a difficult encounter.",
+        ],
+      },
     ],
     faq: [
       { question: "Which Minecraft version adds Trial Chambers?", answer: "Trial Chambers are a Minecraft 1.21 structure. Use Java 1.21 in the finder and search unexplored Overworld chunks." },
@@ -213,6 +269,20 @@ export const structureGuides: StructureGuide[] = [
         paragraphs: [
           "Woodland Mansion generation is associated with Dark Forest terrain and version-specific placement. A coordinate is a structure candidate, while biome and terrain conditions help determine the final result. Already-generated chunks and custom world settings can also cause differences from a fresh world using the same seed.",
           "If the mansion is not visible at the exact marker, search the nearby area and verify the seed, version, and edition. Mansions are large, so they are normally obvious once the correct region loads. If the first candidate fails verification, return to the finder and choose the next result rather than wandering without a route.",
+        ],
+      },
+      {
+        heading: "Choosing the most practical mansion route",
+        paragraphs: [
+          "A Woodland Mansion can be rare enough that every candidate looks distant. Compare the coordinates with known bases, Nether portals, railways, and ocean routes before choosing. Boats make large oceans fast, while a straight overland path through forests and mountains can take much longer than the distance suggests. If the journey crosses unexplored terrain, carry maps or leave durable markers so the return trip does not depend on memory.",
+          "For Nether travel, divide the mansion's Overworld X and Z values by eight to estimate the matching Nether position. Portal linking can shift the final exit, so test the route with spare obsidian and keep the original destination coordinates available. On a shared server, build the transport line in stages and label both ends. A safe route is valuable even after the first mansion has been cleared.",
+        ],
+      },
+      {
+        heading: "Exploring and securing a Woodland Mansion",
+        paragraphs: [
+          "Approach in daylight when possible and establish a small shelter beyond the mansion walls. Light the surrounding area, set a respawn point, and store backup supplies before entering. Vindicators deal heavy close-range damage, while evokers can attack through obstacles and summon vexes. Move room by room, use doorways to control encounters, and avoid rushing into large spaces without checking upper levels.",
+          "Mansions contain varied room layouts, and not every room holds valuable loot. Hidden spaces may be enclosed by walls, so listen for mobs and inspect suspicious gaps without destroying your navigation landmarks. After clearing the structure, decide whether to convert it into a base, preserve it, or strip useful materials. Save the coordinates because a secured mansion can become a long-term landmark and transport destination.",
         ],
       },
     ],

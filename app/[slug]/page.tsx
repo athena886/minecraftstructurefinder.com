@@ -83,7 +83,7 @@ export default async function StructureGuidePage({ params }: PageProps) {
         <header className="guide-hero">
           <div>
             <p className="eyebrow">{guide.eyebrow}</p>
-            <h1>{guide.title.replace("Minecraft ", "")}</h1>
+            <h1>{guide.title}</h1>
             <p className="guide-lede">{guide.intro}</p>
             <Link className="guide-primary" href="/#search-form">Find {guide.name} coordinates</Link>
           </div>
